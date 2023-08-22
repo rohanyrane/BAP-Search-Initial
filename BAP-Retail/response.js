@@ -1,58 +1,325 @@
 export const response = {
-    "context": {
-        "domain": "local_retail",
-        "country": "IND",
-        "city": "std:080",
-        "action": "on_search",
-        "core_version": "0.9.2",
-        "bap_id": "https://mock_bap.com/",
-        "bap_uri": "https://mock_bap.com/beckn/",
-        "transaction_id": "1239890342",
-        "message_id": "123793824",
-        "timestamp": "2021-06-23T09:53:38.872Z"
+  responses: [
+    {
+      context: {
+        transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+        country: "IND",
+        bpp_id: "retail-osm-stage.becknprotocol.io",
+        city: "std:080",
+        max_callbacks: 1,
+        message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+        core_version: "0.9.2",
+        ttl: "PT10M",
+        bap_id: "sandeep-bap-1",
+        domain: "nic2004:52110",
+        bpp_uri: "https://retail-osm-stage.becknprotocol.io//boc/bpp",
+        action: "on_search",
+        bap_uri: "https://sandeep-bap.loca.lt",
+        timestamp: "2023-08-22T16:10:54.683Z",
+      },
+      message: {
+        catalog: {
+          "bpp/providers": [],
+          "bpp/descriptor": {
+            name: "PanierRapide",
+          },
+          id: "./retail.kirana/ind.blr/0@retail-osm-stage.becknprotocol.io",
+        },
+      },
     },
-    "message": {
-        "catalog": {
+    {
+      context: {
+        transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+        country: "IND",
+        bpp_id: "retail-osm-prod.becknprotocol.io",
+        city: "std:080",
+        max_callbacks: 1,
+        message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+        core_version: "0.9.2",
+        ttl: "PT10M",
+        bap_id: "sandeep-bap-1",
+        domain: "nic2004:52110",
+        bpp_uri: "https://retail-osm-prod.becknprotocol.io//boc/bpp",
+        action: "on_search",
+        bap_uri: "https://sandeep-bap.loca.lt",
+        timestamp: "2023-08-22T16:10:54.683Z",
+      },
+      message: {
+        catalog: {
+          "bpp/providers": [],
+          "bpp/descriptor": {
+            name: "ClicPaye",
+          },
+          id: "./retail.kirana/ind.blr/0@retail-osm-prod.becknprotocol.io",
+        },
+      },
+    },
+    {
+      context: {
+        transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+        country: "IND",
+        bpp_id: "market.becknprotocol.io",
+        city: "std:080",
+        max_callbacks: 1,
+        message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+        core_version: "0.9.2",
+        ttl: "PT10M",
+        bap_id: "sandeep-bap-1",
+        domain: "nic2004:52110",
+        bpp_uri: "https://market.becknprotocol.io//boc/bpp",
+        action: "on_search",
+        bap_uri: "https://sandeep-bap.loca.lt",
+        timestamp: "2023-08-22T16:10:54.683Z",
+      },
+      message: {
+        catalog: {
+          "bpp/providers": [],
+          "bpp/descriptor": {
+            name: "HBO",
+          },
+          id: "./retail.kirana/ind.blr/0@market.becknprotocol.io",
+        },
+      },
+    },
+    {
+      context: {
+        transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+        country: "IND",
+        bpp_id: "bazaar.becknprotocol.io",
+        city: "std:080",
+        max_callbacks: 1,
+        message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+        core_version: "0.9.2",
+        ttl: "PT10M",
+        bap_id: "sandeep-bap-1",
+        domain: "nic2004:52110",
+        bpp_uri: "https://bazaar.becknprotocol.io//boc/bpp",
+        action: "on_search",
+        bap_uri: "https://sandeep-bap.loca.lt",
+        timestamp: "2023-08-22T16:10:54.683Z",
+      },
+      message: {
+        catalog: {
+          "bpp/providers": [],
+          "bpp/descriptor": {
+            name: "HBO",
+          },
+          id: "./retail.kirana/ind.blr/0@bazaar.becknprotocol.io",
+        },
+      },
+    },
+    {
+      context: {
+        transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+        country: "IND",
+        bpp_id: "tourism-bpp-infra2.becknprotocol.io",
+        city: "std:080",
+        max_callbacks: 1,
+        message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+        core_version: "0.9.2",
+        ttl: "PT10M",
+        bap_id: "sandeep-bap-1",
+        domain: "nic2004:52110",
+        bpp_uri: "https://tourism-bpp-infra2.becknprotocol.io//boc/bpp",
+        action: "on_search",
+        bap_uri: "https://sandeep-bap.loca.lt",
+        timestamp: "2023-08-22T16:10:54.683Z",
+      },
+      message: {
+        catalog: {
+          "bpp/providers": [],
+          "bpp/descriptor": {
+            name: "HBO",
+          },
+          id: "./retail.kirana/ind.blr/0@tourism-bpp-infra2.becknprotocol.io",
+        },
+      },
+    },
+    {
+      context: {
+        transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+        country: "IND",
+        bpp_id: "mandi.succinct.in",
+        city: "std:080",
+        max_callbacks: 1,
+        message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+        core_version: "0.9.2",
+        ttl: "PT10M",
+        bap_id: "sandeep-bap-1",
+        domain: "nic2004:52110",
+        bpp_uri: "https://mandi.succinct.in//boc/bpp",
+        action: "on_search",
+        bap_uri: "https://sandeep-bap.loca.lt",
+        timestamp: "2023-08-22T16:10:54.683Z",
+      },
+      message: {
+        catalog: {
+          "bpp/providers": [],
+          "bpp/descriptor": {
+            name: "MANDI",
+          },
+          id: "./0@mandi.succinct.in",
+        },
+      },
+    },
+    {
+      context: {
+        transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+        country: "IND",
+        bpp_id: "bocshopify.humbhionline.in",
+        city: "std:080",
+        max_callbacks: 1,
+        message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+        ttl: "PT10M",
+        core_version: "0.9.2",
+        bap_id: "sandeep-bap-1",
+        domain: "nic2004:52110",
+        bpp_uri: "https://bocshopify.humbhionline.in/bpp",
+        action: "on_search",
+        bap_uri: "https://sandeep-bap.loca.lt",
+        timestamp: "2023-08-22T16:10:54.683Z",
+      },
+      message: {
+        catalog: {
+          "bpp/providers": [],
+          "bpp/fulfillments": [],
+          "bpp/descriptor": {
+            symbol:
+              "https://cdn.shopify.com/s/files/1/0707/2808/9889/files/512x512.png?v=1676631279",
+            images: [
+              "https://cdn.shopify.com/s/files/1/0707/2808/9889/files/512x512.png?v=1676631279",
+            ],
+            code: "bocshopify.humbhionline.in",
+            name: "Test shopify store",
+            short_desc: "Test shopify store",
+            long_desc: "Test shopify store",
+          },
+        },
+      },
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        context: {
+          transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+          country: "IND",
+          bpp_id: "retail-osm-stage.becknprotocol.io",
+          city: "std:080",
+          max_callbacks: 1,
+          message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+          core_version: "0.9.2",
+          ttl: "PT10M",
+          bap_id: "sandeep-bap-1",
+          domain: "nic2004:52110",
+          bpp_uri: "https://retail-osm-stage.becknprotocol.io//boc/bpp",
+          action: "on_search",
+          bap_uri: "https://sandeep-bap.loca.lt",
+          timestamp: "2023-08-22T16:10:54.683Z",
+        },
+        message: {
+          catalog: {
+            "bpp/providers": [],
             "bpp/descriptor": {
-                "name": "Shop EZ"
+              name: "PanierRapide",
             },
-            "bpp/providers": [
-                {
-                    "id": "./retail.kirana/ind.blr/pooja-stores@lrdn.bpp.shopez.com.provider",
-                    "descriptor": {
-                        "name": "Pooja Stores"
-                    },
-                    "locations": [
-                        {
-                            "id": "./retail.kirana/ind.blr/pooja-stores.koramangala-4th-block@lrdn.bpp.shopez.com.provider_location",
-                            "gps": "12.9349377,77.6055586"
-                        }
-                    ]
-                },
-                {
-                    "id": "./retail.kirana/ind.blr/nilgiris@lrdn.bpp.shopez.com.provider",
-                    "descriptor": {
-                        "name": "Nilgiris"
-                    },
-                    "locations": [
-                        {
-                            "id": "./retail.kirana/ind.blr/nilgiris.koramangala-4th-block@lrdn.bpp.shopez.com.provider_location",
-                            "gps": "12.9349406,77.6208795"
-                        }
-                    ]
-                },
-                {
-                    "id": "./retail.kirana/ind.blr/food-mall@lrdn.bpp.shopez.com",
-                    "descriptor": {
-                        "name": "Food Mall"
-                    },
-                    "locations": [
-                        {
-                            "id": "./retail.kirana/ind.blr/food-mall.koramangala-4th-block@lrdn.bpp.shopez.com.provider_location"
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-}
+            id: "./retail.kirana/ind.blr/0@retail-osm-stage.becknprotocol.io",
+          },
+        },
+      },{
+        context: {
+          transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+          country: "IND",
+          bpp_id: "retail-osm-stage.becknprotocol.io",
+          city: "std:080",
+          max_callbacks: 1,
+          message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+          core_version: "0.9.2",
+          ttl: "PT10M",
+          bap_id: "sandeep-bap-1",
+          domain: "nic2004:52110",
+          bpp_uri: "https://retail-osm-stage.becknprotocol.io//boc/bpp",
+          action: "on_search",
+          bap_uri: "https://sandeep-bap.loca.lt",
+          timestamp: "2023-08-22T16:10:54.683Z",
+        },
+        message: {
+          catalog: {
+            "bpp/providers": [],
+            "bpp/descriptor": {
+              name: "PanierRapide",
+            },
+            id: "./retail.kirana/ind.blr/0@retail-osm-stage.becknprotocol.io",
+          },
+        },
+      },{
+        context: {
+          transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+          country: "IND",
+          bpp_id: "retail-osm-stage.becknprotocol.io",
+          city: "std:080",
+          max_callbacks: 1,
+          message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+          core_version: "0.9.2",
+          ttl: "PT10M",
+          bap_id: "sandeep-bap-1",
+          domain: "nic2004:52110",
+          bpp_uri: "https://retail-osm-stage.becknprotocol.io//boc/bpp",
+          action: "on_search",
+          bap_uri: "https://sandeep-bap.loca.lt",
+          timestamp: "2023-08-22T16:10:54.683Z",
+        },
+        message: {
+          catalog: {
+            "bpp/providers": [],
+            "bpp/descriptor": {
+              name: "PanierRapide",
+            },
+            id: "./retail.kirana/ind.blr/0@retail-osm-stage.becknprotocol.io",
+          },
+        },
+      },{
+        context: {
+          transaction_id: "6c4a81e3-0295-4807-a520-d4ed9e953290",
+          country: "IND",
+          bpp_id: "retail-osm-stage.becknprotocol.io",
+          city: "std:080",
+          max_callbacks: 1,
+          message_id: "c1ee889a-1f8a-406a-aa7e-d280fb6a8f64",
+          core_version: "0.9.2",
+          ttl: "PT10M",
+          bap_id: "sandeep-bap-1",
+          domain: "nic2004:52110",
+          bpp_uri: "https://retail-osm-stage.becknprotocol.io//boc/bpp",
+          action: "on_search",
+          bap_uri: "https://sandeep-bap.loca.lt",
+          timestamp: "2023-08-22T16:10:54.683Z",
+        },
+        message: {
+          catalog: {
+            "bpp/providers": [],
+            "bpp/descriptor": {
+              name: "PanierRapide",
+            },
+            id: "./retail.kirana/ind.blr/0@retail-osm-stage.becknprotocol.io",
+          },
+        },
+      },
+
+
+
+
+  ],
+};
