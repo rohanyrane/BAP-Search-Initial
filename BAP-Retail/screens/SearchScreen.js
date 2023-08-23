@@ -1,48 +1,72 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  SafeAreaView,
-  View,
-  Dimensions,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
+import { StyleSheet, Text, SafeAreaView, View, Dimensions, TouchableOpacity, TextInput} from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import * as Location from 'expo-location';
 
 const SearchScreen = () => {
-  const navigation = useNavigation();
-  const [lat, setLat] = useState(12.9349377);
-  const [long, setLong] = useState(77.6055586);
 
-  const [searchTxt, setSearchText] = useState("");
+  const navigation = useNavigation();
+
+  const [selectedLocation, setSelectedLocation] = useState('Select Location');
+  const [lat, setLat] = useState(0);
+  const [long, setLong] = useState(0);
+  const [search, setSearch] = useState("");
+
+  const handleSelectLocation = async () => {
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        console.error('Permission to access location was denied');
+        return;
+      }
+
+      const location = await Location.getCurrentPositionAsync({});
+      const latitude = location.coords.latitude;
+      const longitude = location.coords.longitude;
+
+      setSelectedLocation(`Mumbai`);
+      setLat(latitude);
+      setLong(longitude);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
+
       <View style={styles.locationBar}>
+
         <View style={styles.location}>
           <Entypo name="location-pin" size={30} color="orange" />
         </View>
-        <TouchableOpacity style={styles.selectLocation}>
-          <Text>Select Location</Text>
-          <AntDesign name="down" size={24} color="black" />
+
+        <TouchableOpacity style={styles.selectLocation} onPress={handleSelectLocation}>
+          <Text>{selectedLocation}</Text>
+          <AntDesign name="down" size={16} color="black" />
         </TouchableOpacity>
+        
       </View>
 
       <View style={styles.searchContainer}>
+
         <View>
           <Text style={styles.orangeTxt}>Open</Text>
           <Text style={styles.orangeTxt}>Commerce</Text>
           <Text style={styles.blackTxt}>for All</Text>
         </View>
+
         <View style={styles.infoContainer}>
           <Text style={styles.info}>
             A global marketplace to discover and buy anything you need. Just
             type what you want to buy and we will take care of the rest.
           </Text>
         </View>
+
         <View style={styles.searchBox}>
           <FontAwesome
             name="search"
@@ -53,38 +77,42 @@ const SearchScreen = () => {
           <TextInput
             style={styles.searchInput}
             placeholder="Enter Something"
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </View>
+
       </View>
-      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate("ProductScreen",{search:searchTxt, lat, long})}>
+
+      <TouchableOpacity style={styles.button} onPress={ () => navigation.navigate("ProviderScreen", { lat, long, search }) }>
         <Text>Search</Text>
       </TouchableOpacity>
+
     </SafeAreaView>
   );
 };
 
 export default SearchScreen;
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0)",
     alignItems: "center",
-    // justifyContent:'center'
   },
+
   locationBar: {
     backgroundColor: "white",
-    marginTop: Dimensions.get("window").height / 6,
+    marginTop: Dimensions.get("window").height / 24,
     width: "100%",
     paddingVertical: 20,
     paddingHorizontal: 20,
     display: "flex",
-
     flexDirection: "row",
     alignItems: "center",
     elevation: 10,
   },
+
   location: {
     display: "flex",
     backgroundColor: "rgba(220,105,32,0.2)",
@@ -94,6 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 5,
   },
+  
   selectLocation: {
     paddingLeft: 20,
     display: "flex",
@@ -102,7 +131,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     paddingHorizontal: 20,
-    marginTop: Dimensions.get("window").height / 10,
+    marginTop: Dimensions.get("window").height / 14,
   },
   orangeTxt: {
     color: "rgba(220,105,32,1)",
@@ -125,6 +154,7 @@ const styles = StyleSheet.create({
     padding: 15,
     gap: 20,
     elevation: 20,
+    borderRadius: 10,
   },
   searchInput: {
     flex: 10,
@@ -134,6 +164,7 @@ const styles = StyleSheet.create({
     color:'white',
     paddingHorizontal:20,
     paddingVertical:10,
-    marginTop:30
+    marginTop:30,
+    borderRadius: 10,
   }
 });

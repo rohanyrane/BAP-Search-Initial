@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SearchScreen from '../screens/SearchScreen'
+import ProviderScreen from '../screens/ProviderScreen';
 import ProductScreen from '../screens/ProductScreen';
 
 export default function RootNavigation() {
@@ -10,7 +11,8 @@ export default function RootNavigation() {
         <NavigationContainer>
             <Stack.Navigator>
 
-                {/* <Stack.Screen name="SearchScreen" component={SearchScreen} options={{headerShown: false}}/> */}
+                <Stack.Screen name="SearchScreen" component={SearchScreen} options={{headerShown: false}}/>
+                <Stack.Screen name="ProviderScreen" component={ProviderScreen} options={{headerShown: false}}/>
                 <Stack.Screen name="ProductScreen" component={ProductScreen} options={{headerShown: false}}/>
 
             </Stack.Navigator>

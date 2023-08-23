@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
 
@@ -6,7 +6,7 @@ const ProductCard = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Text>
-            ProductCard
+                ProductCard
             </Text>
         </SafeAreaView>
     );
