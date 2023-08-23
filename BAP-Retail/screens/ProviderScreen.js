@@ -1,46 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, SafeAreaView, View, TextInput, ScrollView, Image, TouchableOpacity, Dimensions, Modal } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  View,
+  TextInput,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+  Modal,
+} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { response } from "../response";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
-
-
-const ProviderScreen = ( {route} ) => {
-
+import Slider from "react-native-slider";
+import MultiSlider from "@ptomasroos/react-native-multi-slider";
+const ProviderScreen = ({ route }) => {
   const { search, lat, long } = route.params;
   const [searchTxt, setSearchText] = useState(`${search}`);
   const [isModalVisible, setModalVisible] = useState(false);
-
+  const [sliderValue, setSliderValue] = useState(0);
+  const [sliderValues, setSliderValues] = useState([0, 1000]);
   const navigation = useNavigation();
-  
+
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
 
-
-
+  const handleValuesChange = (values) => {
+    setSliderValues(values);
+  };
   //   const [Pcontext, setSearchText] = useState(`${search}`);
   //   const [searchTxt, setSearchText] = useState(`${search}`);
 
-//   useEffect(() => {
-//     axios
-//       .post(
-//         "http://localhost:4000/",
-//         {
-//           message: message,
-//         },
-//         {
-//           context: context,
-//         }
-//       )
-//       .then((response) => {
-//         // useDispatch(items : response.context)
-//         console.log("Response", response);
-//       });
-//   }, []);
+  //   useEffect(() => {
+  //     axios
+  //       .post(
+  //         "http://localhost:4000/",
+  //         {
+  //           message: message,
+  //         },
+  //         {
+  //           context: context,
+  //         }
+  //       )
+  //       .then((response) => {
+  //         // useDispatch(items : response.context)
+  //         console.log("Response", response);
+  //       });
+  //   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -71,15 +83,16 @@ const ProviderScreen = ( {route} ) => {
 
       <View style={styles.section}>
         <View style={styles.top}>
-        <Text style={styles.productFound}>23 Products Found</Text>
-        <TouchableOpacity onPress={()=>toggleModal()}>
-        <MaterialCommunityIcons name="dots-vertical" size={20} color="black" />
-
-        </TouchableOpacity>
-
+          <Text style={styles.productFound}>23 Products Found</Text>
+          <TouchableOpacity onPress={() => toggleModal()}>
+            <MaterialCommunityIcons
+              name="dots-vertical"
+              size={20}
+              color="black"
+            />
+          </TouchableOpacity>
         </View>
         <ScrollView showsVerticalScrollIndicator={false}>
-          
           {response ? (
             response.responses.map((shop) => {
               const imageSource = shop.message.catalog["bpp/descriptor"].symbol;
@@ -107,7 +120,11 @@ const ProviderScreen = ( {route} ) => {
                         <Text>1.8Km</Text>
                       </View>
                     </View>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('ProductScreen',{context,id})}}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        navigation.navigate("ProductScreen", { context, id });
+                      }}
+                    >
                       <Text>Explore All</Text>
                     </TouchableOpacity>
                   </View>
@@ -128,14 +145,76 @@ const ProviderScreen = ( {route} ) => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={modal.modalContainer}>
-            <View style={modal.modalContent}>
-              <View>
-                <Text>Sort</Text>
-                <View style={modal.flexContainer}>
+          <View style={modal.modalContent}>
+            <View style={modal.sort}>
+              <Text style={modal.headings}>Sort : </Text>
+              <Text style={modal.subheadings}>By Price :</Text>
 
-                </View>
+              <View style={modal.sliderContainer}>
+                <MultiSlider
+                  values={sliderValues}
+                  min={0}
+                  max={1000}
+                  step={1}
+                  sliderLength={300}
+                  onValuesChange={handleValuesChange}
+                />
+                <Text style={styles.rangeText}>
+                  Price Range: ₹{sliderValues[0]} - ₹{sliderValues[1]}
+                </Text>
+              </View>
+
+              <Text style={modal.subheadings}>By Rating :</Text>
+              <View style={modal.flexContainer}>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Low to High</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>High to Low</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={modal.flexContainer}></View>
+            </View>
+            <View>
+              <Text style={modal.headings}>Filter : </Text>
+              <Text style={modal.subheadings}>Offers :</Text>
+              <View style={modal.flexContainer}>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Offer1</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Offer2</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Offer3</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Offer4</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Offer5</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={modal.subheadings}>Category :</Text>
+              <View style={modal.flexContainer}>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Category1</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Category2</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Category3</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Category4</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={modal.button}>
+                  <Text>Category5</Text>
+                </TouchableOpacity>
               </View>
             </View>
+          </View>
         </View>
       </Modal>
     </SafeAreaView>
@@ -227,22 +306,52 @@ const styles = StyleSheet.create({
   },
 });
 
-const modal=StyleSheet.create({
-  modalContainer:{
-    flex:1,
+const modal = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,.5)",
+    padding: 20,
   },
-  modalContent:{
-    backgroundColor:'white',
+  modalContent: {
+    backgroundColor: "white",
     justifyContent: "center",
-    alignItems: "center",
-    padding : 20,
+    // alignItems: "center",
+    padding: 20,
     borderRadius: 25,
+    width: "100%",
   },
-  flexContainer:{
-    display:'flex',
-    flexWrap: 'wrap',
-  }
+  flexContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "row",
+    gap: 10,
+  },
+  headings: {
+    fontWeight: "bold",
+    fontSize: 20,
+    marginTop: 10,
+  },
+  subheadings: {
+    fontWeight: "500",
+    fontSize: 14,
+    marginVertical: 5,
+  },
+  sliderContainer: {
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  slider: {
+    flex: 1,
+    marginHorizontal: 16,
+  },
+  button: {
+    borderWidth: 1,
+    borderColor: "gray",
+    borderRadius: 25,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: "white",
+  },
 });
